@@ -1,0 +1,125 @@
+
+body, html {
+    width:100%;
+    height: 100vh;
+}
+
+body { 
+  margin: 0;
+  display: grid;
+  grid-template-columns: 400px repeat(3,1fr); ;                                    /* = 100% header i 100% footer */
+  grid-template-rows: 100px  minmax(92.5px, 400px) minmax(92.5px, 400px) 100px;     /*min 200px *2 = 400px */
+  grid-gap: 15px;
+  grid-template-areas:
+  "header header header header"
+  "sidebar content1  content2  content3"
+  "sidebar content4  content5  content6"
+  "footer footer footer footer ";
+}
+
+aside {
+    grid-area: sidebar;
+    background-color: #6C757D;
+}
+
+button {
+    background-color: #aaaaaa;
+    color: #eeeeee;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+header {
+    grid-area: header;
+    background-color: #1A1C22;
+}
+
+footer {
+    grid-area: footer;
+    background-color: #1A1C22;
+}
+
+section:nth-of-type(1) {
+    grid-area: content1;
+     background-color: #343A40;
+}
+section:nth-of-type(2) {
+    grid-area: content2;
+    background-color: #343A40;
+}
+section:nth-of-type(3) {
+    grid-area: content3;
+    background-color: #343A40;
+}
+
+section:nth-of-type(4) {
+    grid-area: content4;
+    background-color: #343A40;
+}
+section:nth-of-type(5) {
+    grid-area: content5;
+    background-color: #343A40;
+}
+section:nth-of-type(6) {
+    grid-area: content6;
+    background-color: #343A40;
+}
+
+/*=============MEDIA-QUERY=============*/
+
+@supports (display:grid) and (display:flex) {
+
+@media (max-width: 1199px ){
+    body {
+        margin: 0;
+        display: grid;
+        grid-template-columns: 400px repeat(2,1fr);
+        grid-template-rows: 100px minmax(56.6px,123.33px) minmax(56.6px,123.33px) minmax(56.6px,123.33px) 100px;     /*min (56,6px *3) + (15px*2) = 199,98 ~ 200px -contents / max (123,33px *3) + (15px*2) = 399,99 ~ 400px     / grid-gap:15px */
+        grid-template-areas: 
+        "header   header    header"
+        "sidebar  content1  content2"
+        "sidebar  content3  content4"
+        "sidebar  content5  content6"
+        "footer   footer    footer";
+        }
+    }
+
+@media (max-width: 899px) {
+    body {
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: 100px minmax(200px,400px) minmax(56.66px,123.3px) minmax(56.66px,123.3px) minmax(56.66px,123.3px) 100px;    /*  min (56,66px *3) + (15px*2) = 399,9 ~ 200px - contents / max (123,3px *3) + (15px*2) = 399,98 ~ 400px    / grid-gap:15px  */
+        grid-template-areas: 
+        "header    header"
+        "sidebar   sidebar"
+        "content1  content2"
+        "content3  content4"
+        "content5  content6"
+        "footer    footer";
+        }
+    }
+
+@media (max-width: 599px) {
+    body {
+        margin: 0;
+        display: grid;
+        grid-template-columns:100%;
+        grid-template-rows: 100px minmax(200px,400px) minmax(20.83px,54.16px) minmax(20.83px,54.16px)                    /* min (20,83px *6) + (15px*5) = 199,98 ~ 200px   /   grid-gap:15px  /  min (sidebar+content) = 400px; */                
+        minmax(20.83px,54.16px) minmax(20.83px,54.16px) minmax(20.83px,54.16px) minmax(20.83px,54.16px) 100px;           /* max (54,16px *6) + (15px*5) = 399,96 ~ 400px   */
+        grid-template-areas:                                                                                                                                                                                                                                                                                                                                               
+        "header"                                                                                            
+        "sidebar"
+        "content1" 
+        "content2"
+        "content3"
+        "content4"
+        "content5"
+        "content6"
+        "footer";
+        }
+    }
+}

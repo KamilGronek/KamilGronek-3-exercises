@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style2.css">
+    <title>Kamil Gronek Work</title>
+</head>
+<body>
+    
+<main>
+    <button class="button">Open</button>
+</main>
+
+<div class="modal-bg">
+    <div class="modal">
+        <p>Link: <i><a href="3.html">3.html</a></i></p>
+        <button class="button">Close</button>
+    </div>
+</div>
+
+<script>
+
+let modalBtns = document.querySelectorAll("button");
+let modalBg = document.querySelector(".modal-bg");
+let active = false;
+
+let modalBtnOpen = modalBtns[0];
+let modalBtnClose = modalBtns[1];
+
+modalBtnOpen.addEventListener("click",function(){
+    modalBg.classList.add("bg-active");
+    console.log("dodaje tło");
+});
+
+modalBtnClose.addEventListener("click",function(){
+    modalBg.classList.remove("bg-active");
+    console.log("zrób powrót");
+});
+        
+</script>
+
+</body>
+</html>

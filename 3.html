@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style3.css">
+    <title>Kamil Gronek Work</title>
+
+</head>
+<body>
+
+<div class="form">
+    <input type="text" id="myInput" placeholder="Wyszukaj nazwy..." title="Type in a name">
+    <button  id="button" onclick="searchResultAfterClick()">Szukaj</button>
+</div>
+
+<div class="table">
+  <ul id="myUL">
+    <li><a href="#">Walmart</a></li>
+    <li><a href="#">State Grid</a></li>
+    <li><a href="#">Sinopec Group</a></li>
+    <li><a href="#">China National Petroleum</a></li>
+    <li><a href="#">Royal Dutch Shell</a></li>
+    <li><a href="#">Toyota Motor</a></li>
+    <li><a href="#">Volkswagen</a></li>
+    <li><a href="#">BP</a></li>
+    <li><a href="#">Exxon Mobil</a></li>
+    <li><a href="#">Berkshire Hathaway</a></li>
+  </ul>
+</div>
+
+<script>
+    document.addEventListener("keyup",function(event){
+              if(event.keyCode === 13){
+              searchResultAfterClick();
+              }
+    });
+
+    function searchResultAfterClick(){
+        let  input = document.getElementsByTagName("input");
+        let inputValue = input[0].value.toUpperCase();
+              let  myUL =  document.getElementById("myUL");
+                  let li = myUL.getElementsByTagName("li");
+                   
+        for(let i=0; i <li.length; i++){
+              let singleLi = li[i];
+                  let a  =  singleLi.getElementsByTagName("a");
+                    let singleA = a[0];
+                       let text = singleA.innerText;
+                         let elementMatches =  text.toUpperCase().indexOf(inputValue);
+              if(elementMatches > -1){
+                  singleLi.style.display="";
+              }
+              else{
+                 singleLi.style.display="none";   
+              }
+        }
+  }
+  </script>
+</body>
+</html>
+
